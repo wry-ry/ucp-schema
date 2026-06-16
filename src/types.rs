@@ -49,6 +49,18 @@ impl Direction {
         }
     }
 
+    /// Returns the bare direction string ("request" / "response").
+    ///
+    /// Used to build container operation-shape keys (`{op}_{direction}`,
+    /// e.g. `search_response`) when selecting the validation target for
+    /// container-shaped capabilities.
+    pub fn dir_str(&self) -> &'static str {
+        match self {
+            Direction::Request => "request",
+            Direction::Response => "response",
+        }
+    }
+
     /// Create direction from a request flag (true = Request, false = Response).
     pub fn from_request_flag(is_request: bool) -> Self {
         if is_request {
@@ -251,6 +263,14 @@ pub struct ResolveOptions {
     /// added to `required`. Completes the lifecycle symmetry: deprecations (to=omit)
     /// are always surfaced; this flag surfaces planned additions (from=omit) too.
     pub include_future: bool,
+    /// Explicit `$defs` entry to select as the validation/output target,
+    /// overriding the `{op}_{direction}` derivation used for container
+    /// capabilities. Names non-derivable shapes that aren't an operation +
+    /// direction — transport message types (`error_response`), host views
+    /// (`business_schema`), and sub-types of single-object schemas
+    /// (`cart` → `checkout`). When set, selection ignores the container check
+    /// so it works on schemas that also have a root body.
+    pub def_name: Option<String>,
 }
 
 impl ResolveOptions {
@@ -265,6 +285,7 @@ impl ResolveOptions {
             operation: operation.into().to_lowercase(),
             strict: false,
             include_future: false,
+            def_name: None,
         }
     }
 
@@ -277,6 +298,13 @@ impl ResolveOptions {
     /// Include future fields (omit-visibility with non-omit transition target).
     pub fn include_future(mut self, include_future: bool) -> Self {
         self.include_future = include_future;
+        self
+    }
+
+    /// Select an explicit `$defs` entry, overriding `{op}_{direction}`
+    /// derivation (see [`Self::def_name`]).
+    pub fn def_name(mut self, def_name: Option<String>) -> Self {
+        self.def_name = def_name;
         self
     }
 }
