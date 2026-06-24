@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.4.0](https://github.com/wry-ry/ucp-schema/compare/v1.3.0...v1.4.0) (2026-06-24)
+
+
+### Features
+
+* add --include-future flag to resolve ([#19](https://github.com/wry-ry/ucp-schema/issues/19)) ([86bd728](https://github.com/wry-ry/ucp-schema/commit/86bd72876a1e5b05beba554d83d8a2ec8dce48bf))
+* add conventional commits workflow ([#11](https://github.com/wry-ry/ucp-schema/issues/11)) ([ab1a15e](https://github.com/wry-ry/ucp-schema/commit/ab1a15eb177bd633a83a55e705a2735534e091c3))
+* add GitHub Action to publish to crates.io on tag push ([#13](https://github.com/wry-ry/ucp-schema/issues/13)) ([cc0ac77](https://github.com/wry-ry/ucp-schema/commit/cc0ac779d05a3e78a858d484a450661307251f93))
+* container validation for multi-message schemas ([#31](https://github.com/wry-ry/ucp-schema/issues/31)) ([ea8650d](https://github.com/wry-ry/ucp-schema/commit/ea8650d9229f2c43eaf4b813f6ae3cef1adbf8bd))
+* expose compose &gt; resolve &gt; validate pipeline ([#10](https://github.com/wry-ry/ucp-schema/issues/10)) ([f50e5e1](https://github.com/wry-ry/ucp-schema/commit/f50e5e1bccb70e8935d9709831c1b4c6b1e7ecfe))
+* JSONRPC & REST request validation patterns ([#4](https://github.com/wry-ry/ucp-schema/issues/4)) ([efd4968](https://github.com/wry-ry/ucp-schema/commit/efd4968f6745efd14b3f0153b47262ccb61faa5a))
+* support URL mapping in `resolve --bundle` + `validate --schema` ([#27](https://github.com/wry-ry/ucp-schema/issues/27)) ([be4400e](https://github.com/wry-ry/ucp-schema/commit/be4400e94796555a2a43f6b3adf346f4b21f8ed1))
+* type conflict detection & extension visibility control ([#16](https://github.com/wry-ry/ucp-schema/issues/16)) ([26b46b4](https://github.com/wry-ry/ucp-schema/commit/26b46b4a3d4333d270100dc27abe20fc5f929d86))
+* validate `requires` constraints on extension schemas ([#20](https://github.com/wry-ry/ucp-schema/issues/20)) ([66e3bb7](https://github.com/wry-ry/ucp-schema/commit/66e3bb77d56f6c8a8ddeefa6ed368dbfa1a59e92))
+
 ## [1.3.0](https://github.com/Universal-Commerce-Protocol/ucp-schema/compare/v1.2.0...v1.3.0) (2026-06-16)
 
 
