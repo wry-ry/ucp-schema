@@ -40,4 +40,6 @@ jobs:
         run: cargo fetch --locked
 
       - name: Publish to Crates.io
-        uses: rust-lang/simple-publish-action@v1
+        run: cargo publish
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
